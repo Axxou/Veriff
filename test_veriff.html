@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Layers Control Tutorial - Leaflet</title>
+	
+    <script src='https://cdn.veriff.me/sdk/js/1.1/veriff.min.js'></script>
+    <script src='https://cdn.veriff.me/incontext/js/v1/veriff.js'></script>
+	<style>
+  body {
+    background-color: #0a0221;
+  }
+
+	</style>
+
+	
+</head>
+<body>
+
+    <div id='veriff-root' style="width:1000px">
+    .centered-element</div>
+
+    <script>
+        const veriff = Veriff({
+          host: 'https://stationapi.veriff.com',
+          apiKey: 'c11452b5-be99-4b52-8941-347ee3e8bc20',
+          parentId: 'veriff-root',
+          onSession: function(err, response) {
+            window.veriffSDK.createVeriffFrame({ url: response.verification.url });
+          }
+        });
+        veriff.setParams({
+          vendorData: ' '
+        });
+        veriff.mount({
+            formLabel: {
+      givenName: 'Prénom',
+      lastName: 'Nom',
+            },
+    submitBtnText: 'Test pour Åsa',
+    loadingText: 'Chargement'
+  });
+      </script>
+
+
+
+</body>
+</html>
